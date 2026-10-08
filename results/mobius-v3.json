@@ -1,0 +1,487 @@
+{
+  "diagnostics": {
+    "alias": {
+      "m1_gap": 1.1516640789849256e-16,
+      "m2_gap": 1.4999999999999998,
+      "post_ping_m1_gap": 0.1636486879271608
+    },
+    "odometer": [
+      {
+        "group_inverse_max_rad": 4.440892098500626e-15,
+        "group_reconstruction_max_rad": 3.1086244689504383e-15,
+        "harmonic_shape_median_atan_crossratio": 0.006825146774543489,
+        "hidden_drift_inverse_rms_rad": 0.5077427244364631,
+        "mobius_shape_max_atan_crossratio": 5.551115123125783e-15,
+        "reads": 32,
+        "seed": 2026
+      },
+      {
+        "group_inverse_max_rad": 4.440892098500626e-15,
+        "group_reconstruction_max_rad": 4.440892098500626e-15,
+        "harmonic_shape_median_atan_crossratio": 0.004108027322873742,
+        "hidden_drift_inverse_rms_rad": 0.4085740023374446,
+        "mobius_shape_max_atan_crossratio": 1.5543122344752192e-15,
+        "reads": 32,
+        "seed": 2027
+      },
+      {
+        "group_inverse_max_rad": 7.105427357601002e-15,
+        "group_reconstruction_max_rad": 4.440892098500626e-15,
+        "harmonic_shape_median_atan_crossratio": 0.016756806599068863,
+        "hidden_drift_inverse_rms_rad": 0.41277333429569574,
+        "mobius_shape_max_atan_crossratio": 4.440892098500626e-15,
+        "reads": 32,
+        "seed": 2028
+      }
+    ]
+  },
+  "protocol": {
+    "access": "learners and particle filter get actions and past Bernoulli observations only; oracle sees phases",
+    "action_strength": 0.11,
+    "batch": 40,
+    "claim": "exploratory synthetic; equal updates not equal FLOPs/params; no quantum speedup",
+    "drift_std": 0.075,
+    "length": 24,
+    "models": [
+      "quantum_instrument",
+      "real_operator",
+      "gru",
+      "window_transformer"
+    ],
+    "particles": 48,
+    "readout": "0.5+0.37 Re(e^-i phi m1)+0.09 Re(e^-2i phi m2)",
+    "second_harmonic": 0.28,
+    "seeds": [
+      2026,
+      2027,
+      2028
+    ],
+    "steps": 65,
+    "test": 80,
+    "train": 160,
+    "valid": 35,
+    "worlds": [
+      "mobius",
+      "harmonic",
+      "drift"
+    ]
+  },
+  "runs": [
+    {
+      "metrics": {
+        "gru": 0.6930845782076261,
+        "gru_oracle_mae": 0.12608902156352997,
+        "gru_params": 144,
+        "gru_seconds": 0.423,
+        "one_step_tabulation": 0.6926232127617867,
+        "oracle_hidden_state": 0.6445579246944827,
+        "physics_particle_filter": 0.6737396964945302,
+        "physics_particle_filter_oracle_mae": 0.09262148253878971,
+        "physics_particle_filter_seconds": 0.25,
+        "quantum_instrument": 0.6831040892890331,
+        "quantum_instrument_oracle_mae": 0.11363024264574051,
+        "quantum_instrument_params": 33,
+        "quantum_instrument_seconds": 1.587,
+        "real_operator": 0.6865345504991507,
+        "real_operator_oracle_mae": 0.11290597915649414,
+        "real_operator_params": 87,
+        "real_operator_seconds": 0.245,
+        "uniform": 0.6931471805599453,
+        "window_transformer": 0.6946026899186449,
+        "window_transformer_oracle_mae": 0.1279565542936325,
+        "window_transformer_params": 1713,
+        "window_transformer_seconds": 0.211
+      },
+      "seed": 2026,
+      "world": "mobius"
+    },
+    {
+      "metrics": {
+        "gru": 0.6919948325846598,
+        "gru_oracle_mae": 0.11568741500377655,
+        "gru_params": 144,
+        "gru_seconds": 0.384,
+        "one_step_tabulation": 0.6916713247443238,
+        "oracle_hidden_state": 0.6493422485908551,
+        "physics_particle_filter": 0.6774006765479421,
+        "physics_particle_filter_oracle_mae": 0.0952180215370906,
+        "physics_particle_filter_seconds": 0.226,
+        "quantum_instrument": 0.6840486915235826,
+        "quantum_instrument_oracle_mae": 0.09906277805566788,
+        "quantum_instrument_params": 33,
+        "quantum_instrument_seconds": 0.833,
+        "real_operator": 0.690479672398262,
+        "real_operator_oracle_mae": 0.1141735091805458,
+        "real_operator_params": 87,
+        "real_operator_seconds": 0.22,
+        "uniform": 0.6931471805599453,
+        "window_transformer": 0.69595400555148,
+        "window_transformer_oracle_mae": 0.1174558475613594,
+        "window_transformer_params": 1713,
+        "window_transformer_seconds": 0.192
+      },
+      "seed": 2027,
+      "world": "mobius"
+    },
+    {
+      "metrics": {
+        "gru": 0.6926565682933055,
+        "gru_oracle_mae": 0.12828049063682556,
+        "gru_params": 144,
+        "gru_seconds": 0.441,
+        "one_step_tabulation": 0.6934446230422172,
+        "oracle_hidden_state": 0.6365786690493673,
+        "physics_particle_filter": 0.6741766069794882,
+        "physics_particle_filter_oracle_mae": 0.09756906797868216,
+        "physics_particle_filter_seconds": 0.231,
+        "quantum_instrument": 0.6801139719115668,
+        "quantum_instrument_oracle_mae": 0.1087765023112297,
+        "quantum_instrument_params": 33,
+        "quantum_instrument_seconds": 0.897,
+        "real_operator": 0.6867058586411822,
+        "real_operator_oracle_mae": 0.11399213969707489,
+        "real_operator_params": 87,
+        "real_operator_seconds": 0.252,
+        "uniform": 0.6931471805599453,
+        "window_transformer": 0.6926210660183781,
+        "window_transformer_oracle_mae": 0.12942643463611603,
+        "window_transformer_params": 1713,
+        "window_transformer_seconds": 0.21
+      },
+      "seed": 2028,
+      "world": "mobius"
+    },
+    {
+      "metrics": {
+        "gru": 0.6931349393527377,
+        "gru_oracle_mae": 0.1278637945652008,
+        "gru_params": 144,
+        "gru_seconds": 0.402,
+        "one_step_tabulation": 0.6920025226530143,
+        "oracle_hidden_state": 0.6417295747988462,
+        "physics_particle_filter": 0.6726180179788437,
+        "physics_particle_filter_oracle_mae": 0.09245108302482237,
+        "physics_particle_filter_seconds": 2.342,
+        "quantum_instrument": 0.6815881956297691,
+        "quantum_instrument_oracle_mae": 0.11433888226747513,
+        "quantum_instrument_params": 33,
+        "quantum_instrument_seconds": 0.769,
+        "real_operator": 0.6828480952284295,
+        "real_operator_oracle_mae": 0.11120349913835526,
+        "real_operator_params": 87,
+        "real_operator_seconds": 0.225,
+        "uniform": 0.6931471805599453,
+        "window_transformer": 0.6943408077070335,
+        "window_transformer_oracle_mae": 0.1299995481967926,
+        "window_transformer_params": 1713,
+        "window_transformer_seconds": 0.198
+      },
+      "seed": 2026,
+      "world": "harmonic"
+    },
+    {
+      "metrics": {
+        "gru": 0.692046882823967,
+        "gru_oracle_mae": 0.11786393076181412,
+        "gru_params": 144,
+        "gru_seconds": 0.424,
+        "one_step_tabulation": 0.6919359572151177,
+        "oracle_hidden_state": 0.6483692153739441,
+        "physics_particle_filter": 0.6769251911918344,
+        "physics_particle_filter_oracle_mae": 0.09480914330071058,
+        "physics_particle_filter_seconds": 2.448,
+        "quantum_instrument": 0.6836778647258153,
+        "quantum_instrument_oracle_mae": 0.10072626918554306,
+        "quantum_instrument_params": 33,
+        "quantum_instrument_seconds": 0.9,
+        "real_operator": 0.6847549871380809,
+        "real_operator_oracle_mae": 0.10891943424940109,
+        "real_operator_params": 87,
+        "real_operator_seconds": 0.222,
+        "uniform": 0.6931471805599453,
+        "window_transformer": 0.6955979530147097,
+        "window_transformer_oracle_mae": 0.11955153197050095,
+        "window_transformer_params": 1713,
+        "window_transformer_seconds": 0.216
+      },
+      "seed": 2027,
+      "world": "harmonic"
+    },
+    {
+      "metrics": {
+        "gru": 0.6929143798607276,
+        "gru_oracle_mae": 0.12957078218460083,
+        "gru_params": 144,
+        "gru_seconds": 0.396,
+        "one_step_tabulation": 0.6934467043465633,
+        "oracle_hidden_state": 0.6368456689961107,
+        "physics_particle_filter": 0.6723268277707303,
+        "physics_particle_filter_oracle_mae": 0.0976617104025561,
+        "physics_particle_filter_seconds": 2.314,
+        "quantum_instrument": 0.6794787645348777,
+        "quantum_instrument_oracle_mae": 0.1085054948925972,
+        "quantum_instrument_params": 33,
+        "quantum_instrument_seconds": 0.818,
+        "real_operator": 0.6868652067278233,
+        "real_operator_oracle_mae": 0.11505045741796494,
+        "real_operator_params": 87,
+        "real_operator_seconds": 0.214,
+        "uniform": 0.6931471805599453,
+        "window_transformer": 0.6932164811715485,
+        "window_transformer_oracle_mae": 0.1304480880498886,
+        "window_transformer_params": 1713,
+        "window_transformer_seconds": 0.187
+      },
+      "seed": 2028,
+      "world": "harmonic"
+    },
+    {
+      "metrics": {
+        "gru": 0.6940370733843165,
+        "gru_oracle_mae": 0.12261202186346054,
+        "gru_params": 144,
+        "gru_seconds": 0.406,
+        "one_step_tabulation": 0.6889767919741049,
+        "oracle_hidden_state": 0.6437572117093402,
+        "physics_particle_filter": 0.6754811041137408,
+        "physics_particle_filter_oracle_mae": 0.09931229272851701,
+        "physics_particle_filter_seconds": 0.272,
+        "quantum_instrument": 0.6841905357016576,
+        "quantum_instrument_oracle_mae": 0.11261513084173203,
+        "quantum_instrument_params": 33,
+        "quantum_instrument_seconds": 0.793,
+        "real_operator": 0.6846443606972668,
+        "real_operator_oracle_mae": 0.11412467807531357,
+        "real_operator_params": 87,
+        "real_operator_seconds": 0.222,
+        "uniform": 0.6931471805599453,
+        "window_transformer": 0.6974840974829196,
+        "window_transformer_oracle_mae": 0.12729406356811523,
+        "window_transformer_params": 1713,
+        "window_transformer_seconds": 0.202
+      },
+      "seed": 2026,
+      "world": "drift"
+    },
+    {
+      "metrics": {
+        "gru": 0.693062624771576,
+        "gru_oracle_mae": 0.12655621767044067,
+        "gru_params": 144,
+        "gru_seconds": 0.438,
+        "one_step_tabulation": 0.6944288218243543,
+        "oracle_hidden_state": 0.6587285856909872,
+        "physics_particle_filter": 0.6814965576920002,
+        "physics_particle_filter_oracle_mae": 0.10698883028904209,
+        "physics_particle_filter_seconds": 0.288,
+        "quantum_instrument": 0.6914424739802991,
+        "quantum_instrument_oracle_mae": 0.11291523277759552,
+        "quantum_instrument_params": 33,
+        "quantum_instrument_seconds": 0.813,
+        "real_operator": 0.689328094947692,
+        "real_operator_oracle_mae": 0.11903782188892365,
+        "real_operator_params": 87,
+        "real_operator_seconds": 0.236,
+        "uniform": 0.6931471805599453,
+        "window_transformer": 0.6938366192569637,
+        "window_transformer_oracle_mae": 0.12635236978530884,
+        "window_transformer_params": 1713,
+        "window_transformer_seconds": 0.217
+      },
+      "seed": 2027,
+      "world": "drift"
+    },
+    {
+      "metrics": {
+        "gru": 0.6948952901645025,
+        "gru_oracle_mae": 0.11821869015693665,
+        "gru_params": 144,
+        "gru_seconds": 0.409,
+        "one_step_tabulation": 0.6951953862178339,
+        "oracle_hidden_state": 0.6593549275405101,
+        "physics_particle_filter": 0.6858076319448708,
+        "physics_particle_filter_oracle_mae": 0.09794100299179001,
+        "physics_particle_filter_seconds": 0.279,
+        "quantum_instrument": 0.691967587122317,
+        "quantum_instrument_oracle_mae": 0.10948923230171204,
+        "quantum_instrument_params": 33,
+        "quantum_instrument_seconds": 0.84,
+        "real_operator": 0.6874838218135318,
+        "real_operator_oracle_mae": 0.10688024014234543,
+        "real_operator_params": 87,
+        "real_operator_seconds": 0.223,
+        "uniform": 0.6931471805599453,
+        "window_transformer": 0.6988662440737339,
+        "window_transformer_oracle_mae": 0.12191417068243027,
+        "window_transformer_params": 1713,
+        "window_transformer_seconds": 0.197
+      },
+      "seed": 2028,
+      "world": "drift"
+    }
+  ],
+  "summary": {
+    "drift": {
+      "gru": {
+        "mean": 0.6939983294401317,
+        "std": 0.0009169467980836416
+      },
+      "gru_oracle_mae": {
+        "mean": 0.12246230989694595,
+        "std": 0.004170779485215853
+      },
+      "one_step_tabulation": {
+        "mean": 0.692867000005431,
+        "std": 0.003390751264481601
+      },
+      "oracle_hidden_state": {
+        "mean": 0.6539469083136126,
+        "std": 0.008830091375147533
+      },
+      "physics_particle_filter": {
+        "mean": 0.6809284312502039,
+        "std": 0.005186653063602436
+      },
+      "physics_particle_filter_oracle_mae": {
+        "mean": 0.10141404200311636,
+        "std": 0.004876351834126017
+      },
+      "quantum_instrument": {
+        "mean": 0.6892001989347579,
+        "std": 0.004346433047314536
+      },
+      "quantum_instrument_oracle_mae": {
+        "mean": 0.11167319864034653,
+        "std": 0.001897313105207905
+      },
+      "real_operator": {
+        "mean": 0.6871520924861635,
+        "std": 0.002359422575997945
+      },
+      "real_operator_oracle_mae": {
+        "mean": 0.11334758003552754,
+        "std": 0.006115930796188133
+      },
+      "uniform": {
+        "mean": 0.6931471805599453,
+        "std": 0.0
+      },
+      "window_transformer": {
+        "mean": 0.6967289869378724,
+        "std": 0.002598446728489675
+      },
+      "window_transformer_oracle_mae": {
+        "mean": 0.12518686801195145,
+        "std": 0.0028730833007651114
+      }
+    },
+    "harmonic": {
+      "gru": {
+        "mean": 0.6926987340124775,
+        "std": 0.0005751904913598691
+      },
+      "gru_oracle_mae": {
+        "mean": 0.12509950250387192,
+        "std": 0.0063240473993357495
+      },
+      "one_step_tabulation": {
+        "mean": 0.6924617280715651,
+        "std": 0.0008536635380011189
+      },
+      "oracle_hidden_state": {
+        "mean": 0.642314819722967,
+        "std": 0.005784022302552614
+      },
+      "physics_particle_filter": {
+        "mean": 0.6739566789804695,
+        "std": 0.002574926503046695
+      },
+      "physics_particle_filter_oracle_mae": {
+        "mean": 0.09497397890936303,
+        "std": 0.002609221627383717
+      },
+      "quantum_instrument": {
+        "mean": 0.6815816082968208,
+        "std": 0.0020995578458569792
+      },
+      "quantum_instrument_oracle_mae": {
+        "mean": 0.10785688211520512,
+        "std": 0.006829445997359098
+      },
+      "real_operator": {
+        "mean": 0.6848227630314446,
+        "std": 0.0020094131925592947
+      },
+      "real_operator_oracle_mae": {
+        "mean": 0.11172446360190709,
+        "std": 0.0030985342103290623
+      },
+      "uniform": {
+        "mean": 0.6931471805599453,
+        "std": 0.0
+      },
+      "window_transformer": {
+        "mean": 0.6943850806310973,
+        "std": 0.0011913530558974683
+      },
+      "window_transformer_oracle_mae": {
+        "mean": 0.1266663894057274,
+        "std": 0.006165727389582803
+      }
+    },
+    "mobius": {
+      "gru": {
+        "mean": 0.6925786596951972,
+        "std": 0.000549034327649919
+      },
+      "gru_oracle_mae": {
+        "mean": 0.12335230906804402,
+        "std": 0.006727821708185707
+      },
+      "one_step_tabulation": {
+        "mean": 0.6925797201827759,
+        "std": 0.0008874488248060708
+      },
+      "oracle_hidden_state": {
+        "mean": 0.6434929474449017,
+        "std": 0.0064480906541832285
+      },
+      "physics_particle_filter": {
+        "mean": 0.6751056600073202,
+        "std": 0.0019995120365385913
+      },
+      "physics_particle_filter_oracle_mae": {
+        "mean": 0.09513619068485414,
+        "std": 0.002474807596065245
+      },
+      "quantum_instrument": {
+        "mean": 0.6824222509080609,
+        "std": 0.002054064821182801
+      },
+      "quantum_instrument_oracle_mae": {
+        "mean": 0.10715650767087936,
+        "std": 0.00741761707840381
+      },
+      "real_operator": {
+        "mean": 0.6879066938461983,
+        "std": 0.0022299104448198254
+      },
+      "real_operator_oracle_mae": {
+        "mean": 0.11369054267803828,
+        "std": 0.0006854769594136128
+      },
+      "uniform": {
+        "mean": 0.6931471805599453,
+        "std": 0.0
+      },
+      "window_transformer": {
+        "mean": 0.6943925871628344,
+        "std": 0.0016763737228994416
+      },
+      "window_transformer_oracle_mae": {
+        "mean": 0.12494627883036931,
+        "std": 0.006528403901577008
+      }
+    }
+  }
+}
