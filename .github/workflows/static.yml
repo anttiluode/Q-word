@@ -1,28 +1,24 @@
-# Simple workflow for deploying static content to GitHub Pages
+# Publish the public laboratory rather than the entire Python repository.
+# IMPORTANT: re-running failed jobs within an existing run can upload another
+# artifact named "github-pages"; deploy-pages requires exactly one per run.
+# For a retry, start a NEW run via workflow_dispatch or a new commit.
 name: Deploy static content to Pages
 
 on:
-  # Runs on pushes targeting the default branch
   push:
     branches: ["main"]
-
-  # Allows you to run this workflow manually from the Actions tab
   workflow_dispatch:
 
-# Sets permissions of the GITHUB_TOKEN to allow deployment to GitHub Pages
 permissions:
   contents: read
   pages: write
   id-token: write
 
-# Allow only one concurrent deployment, skipping runs queued between the run in-progress and latest queued.
-# However, do NOT cancel in-progress runs as we want to allow these production deployments to complete.
 concurrency:
   group: "pages"
   cancel-in-progress: false
 
 jobs:
-  # Single deploy job since we're just deploying
   deploy:
     environment:
       name: github-pages
@@ -31,13 +27,32 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+      - name: Assemble public site
+        shell: bash
+        run: |
+          set -euo pipefail
+          mkdir -p _site
+          cp -R web results docs _site/
+          cp README.md _site/
+          cat > _site/index.html <<'HTML'
+          <!doctype html>
+          <html lang="en"><head><meta charset="utf-8">
+          <meta name="viewport" content="width=device-width,initial-scale=1">
+          <meta http-equiv="refresh" content="0;url=web/index.html">
+          <title>Q-word · Research laboratory</title></head>
+          <body><p><a href="web/index.html">Open the Q-word research laboratory</a></p></body></html>
+          HTML
+          test -s _site/web/index.html
+          test -s _site/web/sequence.html
+          test -s _site/web/mobius.html
+          test -s _site/results/mobius-v3.json
+          find _site -type f | sort
       - name: Setup Pages
         uses: actions/configure-pages@v5
-      - name: Upload artifact
+      - name: Upload Pages artifact
         uses: actions/upload-pages-artifact@v3
         with:
-          # Upload entire repository
-          path: '.'
+          path: _site
       - name: Deploy to GitHub Pages
         id: deployment
         uses: actions/deploy-pages@v5
