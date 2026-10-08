@@ -1,6 +1,6 @@
 # Q-word — when memory is a prediction, not a snapshot
 
-**A runnable laboratory for the difference between storing a hidden state and preserving its future responses.** A conventional classical Markov chain, a qubit predictive-state instrument, and an oscillator-driven qubit probe all live in one tiny NumPy codebase. The interactive visual laboratory is [web/index.html!](https://anttiluode.github.io/Q-word/web/index.html) (open it locally in a browser).
+**A runnable laboratory for the difference between storing a hidden state and preserving its future responses.** A conventional classical Markov chain, a qubit predictive-state instrument, and an oscillator-driven qubit probe all live in one tiny NumPy codebase. The interactive visual laboratory is [web/index.html!](https://anttiluode.github.io/Q-word/web/index.html) .
 
 > This repo **does not** demonstrate a novel quantum advantage, quantum neurons, quantum consciousness, or evidence of quantum biology. It numerically reproduces one known quantum-memory compression construction, demonstrates a classical/quantum measurement interface, and carries the negative controls that prevent attractive visual analogies from masquerading as physical discoveries.
 
