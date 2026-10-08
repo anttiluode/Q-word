@@ -1,0 +1,75 @@
+{
+  "classical_empirical_max_error": 0.010568696527428312,
+  "classical_rank_two_frobenius_lower_bound": 0.4999999999999999,
+  "models": {
+    "classical_hidden_states": 3,
+    "quantum_memory_dimension": 2,
+    "quantum_memory_qubits": 1
+  },
+  "oscillator": {
+    "classical_same_information_p0": [
+      0.5000000000000002,
+      0.9785997828022923
+    ],
+    "first_moments": [
+      0.5000000000000001,
+      0.5
+    ],
+    "first_only_gap": 0,
+    "first_second_gap": 0.4785997828022923,
+    "quantum_vs_classical_bloch_max_gap": 2.220446049250313e-16,
+    "qubit_first_only_p0": [
+      0.7528194809735398,
+      0.7528194809735398
+    ],
+    "qubit_first_second_p0": [
+      0.5000000000000002,
+      0.9785997828022925
+    ],
+    "second_moments": [
+      -0.4999999999999998,
+      1
+    ]
+  },
+  "quantum_empirical_max_error": 0.010568696527428312,
+  "quantum_exact_max_error": 1.1102230246251565e-16,
+  "quantum_transition_matrix": [
+    [
+      0,
+      0.4999999999999999,
+      0.5000000000000001
+    ],
+    [
+      0.4999999999999999,
+      5.551115123125783e-17,
+      0.4999999999999999
+    ],
+    [
+      0.5000000000000001,
+      0.4999999999999999,
+      5.551115123125783e-17
+    ]
+  ],
+  "sample_paths_identical_given_seed": true,
+  "schema": "q-word.v1",
+  "scope": "Classical numerical simulation of a qubit instrument and driven unitary. No hardware, no biological data, no quantum advantage inferred from oscillator sensing.",
+  "seed": 4100,
+  "steps": 12000,
+  "transition_matrix": [
+    [
+      0,
+      0.5,
+      0.5
+    ],
+    [
+      0.5,
+      0,
+      0.5
+    ],
+    [
+      0.5,
+      0.5,
+      0
+    ]
+  ]
+}
