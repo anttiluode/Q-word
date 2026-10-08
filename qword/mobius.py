@@ -223,9 +223,10 @@ def run_benchmark(worlds=('mobius','harmonic','drift'),seeds=(2026,2027,2028),
     """Train the existing four Q-word v2 models. Equal observation rights, NOT
     equal parameter counts or compute. For screening only, not discovery claims.
     """
-    from .sequence import torch, models, fit, predicted, markov_baseline, log_loss
-    if torch is None:
+    from . import sequence as seq
+    if seq.torch is None:
         raise RuntimeError("pip install -e '.[sequence]' (requires PyTorch)")
+    from .sequence import torch, models, fit, predicted, markov_baseline, log_loss
     torch.set_num_threads(1)
     names=tuple(models_to_run or models())
     if any(name not in models() for name in names):
