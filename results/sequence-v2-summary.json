@@ -1,0 +1,165 @@
+{
+  "schema": "qword.sequence.v2.summary",
+  "seeds": [
+    2026,
+    2027,
+    2028
+  ],
+  "exploratory": true,
+  "tasks": {
+    "qubit": {
+      "baselines": {
+        "oracle": {
+          "mean_nll": 0.5870177984724768,
+          "per_seed_nll": [
+            0.5933383951123092,
+            0.5874567212902013,
+            0.5802582790149199
+          ]
+        },
+        "one_step_markov": {
+          "mean_nll": 0.6245015631024312,
+          "per_seed_nll": [
+            0.6232383192426953,
+            0.6248251997207517,
+            0.6254411703438465
+          ]
+        },
+        "uniform": {
+          "mean_nll": 0.6931471805599453,
+          "per_seed_nll": [
+            0.6931471805599453,
+            0.6931471805599453,
+            0.6931471805599453
+          ]
+        }
+      },
+      "models": {
+        "quantum_instrument": {
+          "mean_nll": 0.6133648121126263,
+          "per_seed_nll": [
+            0.6116353187874348,
+            0.6387997768988048,
+            0.589659340651639
+          ],
+          "parameter_count": 33,
+          "live_state_real_scalars": 3,
+          "mean_mae_from_oracle": 0.08072343468666077
+        },
+        "real_operator": {
+          "mean_nll": 0.6414640032170736,
+          "per_seed_nll": [
+            0.6471753483246472,
+            0.635956161665097,
+            0.6412604996614768
+          ],
+          "parameter_count": 87,
+          "live_state_real_scalars": 3,
+          "mean_mae_from_oracle": 0.1228713517387708
+        },
+        "gru": {
+          "mean_nll": 0.6577619496079787,
+          "per_seed_nll": [
+            0.6529852041265876,
+            0.6639871816167713,
+            0.6563134630805774
+          ],
+          "parameter_count": 144,
+          "live_state_real_scalars": 4,
+          "mean_mae_from_oracle": 0.15226486325263977
+        },
+        "window_transformer": {
+          "mean_nll": 0.6418706250813071,
+          "per_seed_nll": [
+            0.6395436455491004,
+            0.6421650969160295,
+            0.6439031327787915
+          ],
+          "parameter_count": 1713,
+          "live_state_real_scalars": 64,
+          "mean_mae_from_oracle": 0.12444906930128734
+        }
+      }
+    },
+    "hmm": {
+      "baselines": {
+        "oracle": {
+          "mean_nll": 0.6591486253306668,
+          "per_seed_nll": [
+            0.6665857006925471,
+            0.6484411406042088,
+            0.6624190346952445
+          ]
+        },
+        "one_step_markov": {
+          "mean_nll": 0.6674350130543611,
+          "per_seed_nll": [
+            0.6717705741978123,
+            0.6574213840271041,
+            0.6731130809381671
+          ]
+        },
+        "uniform": {
+          "mean_nll": 0.6931471805599453,
+          "per_seed_nll": [
+            0.6931471805599453,
+            0.6931471805599453,
+            0.6931471805599453
+          ]
+        }
+      },
+      "models": {
+        "quantum_instrument": {
+          "mean_nll": 0.6759282079432567,
+          "per_seed_nll": [
+            0.6780401969386437,
+            0.667485930751635,
+            0.6822584961394914
+          ],
+          "parameter_count": 33,
+          "live_state_real_scalars": 3,
+          "mean_mae_from_oracle": 0.070003442466259
+        },
+        "real_operator": {
+          "mean_nll": 0.6676404945563527,
+          "per_seed_nll": [
+            0.6703561902072275,
+            0.6590694034667657,
+            0.6734958899950648
+          ],
+          "parameter_count": 87,
+          "live_state_real_scalars": 3,
+          "mean_mae_from_oracle": 0.0552422987918059
+        },
+        "gru": {
+          "mean_nll": 0.6785077354056245,
+          "per_seed_nll": [
+            0.6788996537430578,
+            0.6716395391175971,
+            0.6849840133562184
+          ],
+          "parameter_count": 144,
+          "live_state_real_scalars": 4,
+          "mean_mae_from_oracle": 0.08061466366052628
+        },
+        "window_transformer": {
+          "mean_nll": 0.6818835026370469,
+          "per_seed_nll": [
+            0.6851783572042227,
+            0.6747367760030416,
+            0.6857353747038762
+          ],
+          "parameter_count": 1713,
+          "live_state_real_scalars": 64,
+          "mean_mae_from_oracle": 0.08253447711467743
+        }
+      }
+    }
+  },
+  "warnings": [
+    "Synthetic CPU-only quantum instrument; no physical quantum advantage.",
+    "Model parameter counts and compute are unmatched; different learning rates.",
+    "Generator for qubit task is in the constrained model family; only three seeds.",
+    "Transformer is randomly initialized, one layer and window eight; not a production LM."
+  ]
+}

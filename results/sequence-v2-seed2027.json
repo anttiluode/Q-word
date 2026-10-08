@@ -1,0 +1,347 @@
+{
+  "schema": "qword.sequence.v2",
+  "configuration": {
+    "task": "both",
+    "seed": 2027,
+    "steps": 80,
+    "train": 350,
+    "valid": 60,
+    "test": 110,
+    "length": 20,
+    "output": "results/sequence-v2-seed2027.json"
+  },
+  "experiments": {
+    "qubit": {
+      "task": "qubit",
+      "seed": 2027,
+      "data": {
+        "train_sequences": 350,
+        "valid_sequences": 60,
+        "test_sequences": 110,
+        "sequence_length": 20,
+        "actions": 3,
+        "outcomes": 2
+      },
+      "train_steps_per_model": 80,
+      "minibatch": 48,
+      "nll_nats_per_token": {
+        "uniform": 0.6931471805599453,
+        "one_step_markov": 0.6248251997207517,
+        "oracle": 0.5874567212902013
+      },
+      "models": {
+        "quantum_instrument": {
+          "trainable_parameters": 33,
+          "live_state_real_scalars": 3,
+          "scores": {
+            "nll": 0.6387997768988048,
+            "late_nll": 0.6354969960458832,
+            "mae_from_oracle": 0.1182173416018486,
+            "prob_range": [
+              0.1692916750907898,
+              0.8264230489730835
+            ]
+          },
+          "validation_history": [
+            {
+              "step": 20,
+              "train_nll": 0.6690971255302429,
+              "valid_nll": 0.6676115613717645
+            },
+            {
+              "step": 40,
+              "train_nll": 0.6639120578765869,
+              "valid_nll": 0.6567906546550178
+            },
+            {
+              "step": 60,
+              "train_nll": 0.633735716342926,
+              "valid_nll": 0.6466325753401243
+            },
+            {
+              "step": 80,
+              "train_nll": 0.6379508376121521,
+              "valid_nll": 0.6353576223274948
+            }
+          ],
+          "train_wall_seconds_local": 4.263
+        },
+        "real_operator": {
+          "trainable_parameters": 87,
+          "live_state_real_scalars": 3,
+          "scores": {
+            "nll": 0.635956161665097,
+            "late_nll": 0.6338461695771992,
+            "mae_from_oracle": 0.10913456231355667,
+            "prob_range": [
+              0.17023642361164093,
+              0.7617993950843811
+            ]
+          },
+          "validation_history": [
+            {
+              "step": 20,
+              "train_nll": 0.6747039556503296,
+              "valid_nll": 0.6725902047492451
+            },
+            {
+              "step": 40,
+              "train_nll": 0.6703917384147644,
+              "valid_nll": 0.6508013105583016
+            },
+            {
+              "step": 60,
+              "train_nll": 0.6367177367210388,
+              "valid_nll": 0.63703492422892
+            },
+            {
+              "step": 80,
+              "train_nll": 0.6276195049285889,
+              "valid_nll": 0.622860937335766
+            }
+          ],
+          "train_wall_seconds_local": 0.646
+        },
+        "gru": {
+          "trainable_parameters": 144,
+          "live_state_real_scalars": 4,
+          "scores": {
+            "nll": 0.6639871816167713,
+            "late_nll": 0.6614472169856733,
+            "mae_from_oracle": 0.15901628136634827,
+            "prob_range": [
+              0.34442710876464844,
+              0.5876768231391907
+            ]
+          },
+          "validation_history": [
+            {
+              "step": 20,
+              "train_nll": 0.7055063247680664,
+              "valid_nll": 0.7056164044652381
+            },
+            {
+              "step": 40,
+              "train_nll": 0.6883843541145325,
+              "valid_nll": 0.6900262696901693
+            },
+            {
+              "step": 60,
+              "train_nll": 0.6701677441596985,
+              "valid_nll": 0.6775338050085641
+            },
+            {
+              "step": 80,
+              "train_nll": 0.6721966862678528,
+              "valid_nll": 0.6629053996699941
+            }
+          ],
+          "train_wall_seconds_local": 1.045
+        },
+        "window_transformer": {
+          "trainable_parameters": 1713,
+          "live_state_real_scalars": 64,
+          "scores": {
+            "nll": 0.6421650969160295,
+            "late_nll": 0.6438814094999759,
+            "mae_from_oracle": 0.1255524456501007,
+            "prob_range": [
+              0.20794810354709625,
+              0.7559041976928711
+            ]
+          },
+          "validation_history": [
+            {
+              "step": 20,
+              "train_nll": 0.6683196425437927,
+              "valid_nll": 0.6673433124173426
+            },
+            {
+              "step": 40,
+              "train_nll": 0.6510372161865234,
+              "valid_nll": 0.6531131889248669
+            },
+            {
+              "step": 60,
+              "train_nll": 0.6407253742218018,
+              "valid_nll": 0.6481391976777898
+            },
+            {
+              "step": 80,
+              "train_nll": 0.645064115524292,
+              "valid_nll": 0.6413637635591668
+            }
+          ],
+          "train_wall_seconds_local": 0.574
+        }
+      },
+      "interpretation": "Synthetic model comparison only; quantum_instrument is computed classically in three real Bloch coordinates. No quantum computing advantage implied. Parameter counts and inference costs are not equal."
+    },
+    "hmm": {
+      "task": "hmm",
+      "seed": 2027,
+      "data": {
+        "train_sequences": 350,
+        "valid_sequences": 60,
+        "test_sequences": 110,
+        "sequence_length": 20,
+        "actions": 3,
+        "outcomes": 2
+      },
+      "train_steps_per_model": 80,
+      "minibatch": 48,
+      "nll_nats_per_token": {
+        "uniform": 0.6931471805599453,
+        "one_step_markov": 0.6574213840271041,
+        "oracle": 0.6484411406042088
+      },
+      "models": {
+        "quantum_instrument": {
+          "trainable_parameters": 33,
+          "live_state_real_scalars": 3,
+          "scores": {
+            "nll": 0.667485930751635,
+            "late_nll": 0.6693348417971398,
+            "mae_from_oracle": 0.07189740985631943,
+            "prob_range": [
+              0.2937243580818176,
+              0.718275785446167
+            ]
+          },
+          "validation_history": [
+            {
+              "step": 20,
+              "train_nll": 0.7046611905097961,
+              "valid_nll": 0.6964996162817974
+            },
+            {
+              "step": 40,
+              "train_nll": 0.6785473227500916,
+              "valid_nll": 0.6834927358456135
+            },
+            {
+              "step": 60,
+              "train_nll": 0.6815136075019836,
+              "valid_nll": 0.6826396519263579
+            },
+            {
+              "step": 80,
+              "train_nll": 0.6759383082389832,
+              "valid_nll": 0.6817751649403411
+            }
+          ],
+          "train_wall_seconds_local": 2.067
+        },
+        "real_operator": {
+          "trainable_parameters": 87,
+          "live_state_real_scalars": 3,
+          "scores": {
+            "nll": 0.6590694034667657,
+            "late_nll": 0.6560638917546927,
+            "mae_from_oracle": 0.05894428491592407,
+            "prob_range": [
+              0.3008282482624054,
+              0.7540364265441895
+            ]
+          },
+          "validation_history": [
+            {
+              "step": 20,
+              "train_nll": 0.6806468963623047,
+              "valid_nll": 0.683159235655815
+            },
+            {
+              "step": 40,
+              "train_nll": 0.6775764226913452,
+              "valid_nll": 0.6786901346331736
+            },
+            {
+              "step": 60,
+              "train_nll": 0.6666172742843628,
+              "valid_nll": 0.6757339220355932
+            },
+            {
+              "step": 80,
+              "train_nll": 0.6697832942008972,
+              "valid_nll": 0.6733457147113595
+            }
+          ],
+          "train_wall_seconds_local": 0.587
+        },
+        "gru": {
+          "trainable_parameters": 144,
+          "live_state_real_scalars": 4,
+          "scores": {
+            "nll": 0.6716395391175971,
+            "late_nll": 0.672379596509666,
+            "mae_from_oracle": 0.08207494765520096,
+            "prob_range": [
+              0.41125166416168213,
+              0.6383457183837891
+            ]
+          },
+          "validation_history": [
+            {
+              "step": 20,
+              "train_nll": 0.6815787553787231,
+              "valid_nll": 0.6863948879977909
+            },
+            {
+              "step": 40,
+              "train_nll": 0.6882060766220093,
+              "valid_nll": 0.6851864285558158
+            },
+            {
+              "step": 60,
+              "train_nll": 0.6801300644874573,
+              "valid_nll": 0.6843812001699302
+            },
+            {
+              "step": 80,
+              "train_nll": 0.6729208827018738,
+              "valid_nll": 0.684012969273585
+            }
+          ],
+          "train_wall_seconds_local": 1.021
+        },
+        "window_transformer": {
+          "trainable_parameters": 1713,
+          "live_state_real_scalars": 64,
+          "scores": {
+            "nll": 0.6747367760030416,
+            "late_nll": 0.6744016088247099,
+            "mae_from_oracle": 0.08429569751024246,
+            "prob_range": [
+              0.3719480037689209,
+              0.7001524567604065
+            ]
+          },
+          "validation_history": [
+            {
+              "step": 20,
+              "train_nll": 0.6832618117332458,
+              "valid_nll": 0.6928620204440317
+            },
+            {
+              "step": 40,
+              "train_nll": 0.6880455017089844,
+              "valid_nll": 0.6887948863548384
+            },
+            {
+              "step": 60,
+              "train_nll": 0.6747944951057434,
+              "valid_nll": 0.6877357960985686
+            },
+            {
+              "step": 80,
+              "train_nll": 0.674523651599884,
+              "valid_nll": 0.6861799093571477
+            }
+          ],
+          "train_wall_seconds_local": 0.61
+        }
+      },
+      "interpretation": "Synthetic model comparison only; quantum_instrument is computed classically in three real Bloch coordinates. No quantum computing advantage implied. Parameter counts and inference costs are not equal."
+    }
+  }
+}

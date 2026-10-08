@@ -9,5 +9,8 @@ description = "Finite quantum instruments, predictive states, and oscillator pro
 requires-python = ">=3.10"
 dependencies = ["numpy>=1.24"]
 
+[project.optional-dependencies]
+sequence = ["torch>=2.2"]
+
 [tool.setuptools.packages.find]
 include = ["qword*"]
