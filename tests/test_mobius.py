@@ -74,9 +74,10 @@ class MobiusTests(unittest.TestCase):
 
 class LearnedModelCausality(unittest.TestCase):
     def test_learning_interfaces_fit_existing_four_models(self):
-        from qword.sequence import torch, models
+        from qword.sequence import torch
         if torch is None:
             self.skipTest('requires optional torch')
+        from qword.sequence import models
         torch.set_num_threads(1)
         a,y,p=trajectories('mobius',3,8,11)
         for name,ctor in models().items():
