@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Q-word — Memory as Future</title>
+<style>
+:root{color-scheme:dark;--bg:#080d18;--panel:#10192b;--line:#293954;--text:#edf3ff;--muted:#94a6c3;--cyan:#65e3ef;--amber:#ffc36d;--violet:#ac9af8;--green:#81dfae}
+*{box-sizing:border-box}body{margin:0;background:radial-gradient(ellipse at 72% -10%,#1b3446 0,transparent 48%),var(--bg);font-family:ui-sans-serif,system-ui,-apple-system,'Segoe UI',sans-serif;color:var(--text);line-height:1.55}
+header,main,footer{max-width:1170px;margin:auto;padding:24px 26px}.eyebrow{font-size:12px;font-weight:700;letter-spacing:.21em;text-transform:uppercase;color:var(--cyan)}
+header{padding-top:52px}h1{font-size:clamp(45px,8vw,92px);letter-spacing:-.08em;line-height:1.03;margin:14px 0 13px;font-weight:770}h1 span{color:var(--cyan)}
+.sub{font-size:clamp(16px,2.2vw,21px);color:#b7c8df;max-width:760px;margin:0}.meta{display:flex;align-items:center;gap:10px;flex-wrap:wrap;margin:26px 0}
+.pill{border:1px solid var(--line);border-radius:30px;padding:6px 12px;font-size:12px;color:var(--muted)}a{color:var(--cyan)}
+.tabs{display:flex;gap:8px;flex-wrap:wrap;margin:12px 0 23px}.tabs button,button.primary,button.secondary{font:inherit;cursor:pointer;border:1px solid var(--line);background:#10192b;color:#b1c2dc;border-radius:12px;padding:11px 17px;font-size:13px;font-weight:700}
+.tabs button[aria-selected=true]{background:#143243;color:#a6f7ff;border-color:#45acbf}button.primary{background:var(--cyan);color:#07111e;border-color:transparent}button.secondary:hover,.tabs button:hover{border-color:#62bed1}button:focus-visible,input:focus-visible{outline:2px solid var(--cyan);outline-offset:3px}
+.panel{border:1px solid var(--line);background:linear-gradient(155deg,#142137,#0d1524 80%);border-radius:20px;padding:clamp(18px,3vw,30px);box-shadow:0 20px 70px #0003}
+.grid{display:grid;grid-template-columns:1.06fr .94fr;gap:22px}.box{background:#0b1424;border:1px solid var(--line);border-radius:15px;padding:20px;min-width:0}
+.sectionhead{margin:0 0 5px;font-size:22px;letter-spacing:-.03em}.description{margin:0 0 20px;color:var(--muted);max-width:780px}
+.small{font-size:13px;color:var(--muted)}.big{font-size:38px;line-height:1.18;font-variant-numeric:tabular-nums;font-weight:750;letter-spacing:-.04em}.row{display:flex;align-items:center;justify-content:space-between;gap:12px;flex-wrap:wrap}.buttons{display:flex;gap:8px;flex-wrap:wrap}.symbol{display:inline-grid;place-items:center;width:32px;height:32px;border-radius:9px;font-weight:750;color:#091220}.symbol.a{background:var(--cyan)}.symbol.b{background:var(--amber)}.symbol.c{background:var(--violet)}
+.trine{width:100%;max-width:330px;display:block;margin:auto}.matrix{border-collapse:separate;border-spacing:8px;width:100%;font-variant-numeric:tabular-nums;text-align:center}.matrix td,.matrix th{padding:10px 0;border-radius:8px;background:#182742;font-size:13px}.matrix th{background:none;color:var(--muted)}.matrix td.zero{color:#8496af;background:#111d2e}.matrix tr.selected td{outline:1px solid #5da4b6}
+.trail{display:flex;gap:5px;flex-wrap:wrap;min-height:36px}.trail .symbol{width:28px;height:28px;font-size:13px}.bar{height:12px;background:#1e3049;border-radius:20px;overflow:hidden;flex:1}.bar>div{height:100%;border-radius:20px;transition:width .3s ease}.meter{display:flex;align-items:center;gap:14px;margin:13px 0}.meter label{font-size:13px;min-width:145px;color:#c1cee0}.meter strong{font-size:13px;font-variant-numeric:tabular-nums;min-width:54px;text-align:right}.note{border-left:3px solid var(--amber);color:#c2cde0;padding:5px 0 5px 15px;font-size:13px;margin-top:20px}
+label.range{display:block;color:var(--muted);font-size:12px;margin-top:15px}label.range strong{float:right;color:var(--text)}input[type=range]{display:block;accent-color:var(--cyan);width:100%;margin-top:8px}
+.moonpair{display:grid;grid-template-columns:1fr 1fr;gap:10px}.moon{text-align:center}.moon svg{max-width:200px;width:100%}.moon b{display:block;font-size:14px}.mono{font-family:ui-monospace,SFMono-Regular,Consolas,monospace;font-size:13px;color:#c3d4eb}.stats{display:grid;grid-template-columns:repeat(2,1fr);gap:12px}.stat{padding:15px;background:#101f32;border-radius:11px}.stat .big{font-size:29px}.stat small{display:block;color:var(--muted)}.conclusion{font-size:14px;color:#bfd3e8;margin-top:16px}.foot{margin:30px 0;color:#92a6c1;font-size:13px}code{font-family:ui-monospace,SFMono-Regular,Consolas,monospace;color:#c4e4fa}
+[hidden]{display:none!important}@media(max-width:790px){.grid{grid-template-columns:1fr}.stats{grid-template-columns:1fr 1fr}header{padding-top:27px}header,main,footer{padding-left:16px;padding-right:16px}.meter label{min-width:110px}}
+</style></head>
+<body>
+<header>
+<div class="eyebrow">Q-word / Predictive-state laboratory / 2026</div>
+<h1>MEMORY <span>≠</span> A SNAPSHOT.</h1>
+<p class="sub">A small laboratory where a memory is defined by the futures it predicts. Explore quantum compression, hidden oscillator moments, and the noncommutativity of sequential pings.</p>
+<div class="meta"><span class="pill">Purely numerical quantum simulations</span><span class="pill">Exact equations + explicit negative controls</span><a class="pill" href="https://github.com/anttiluode/Q-word">Source &amp; reproducibility ↗</a></div>
+</header>
+<main>
+<div class="tabs" role="tablist" aria-label="Experiments"><button role="tab" id="tab-memory" aria-controls="memory" aria-selected="true" data-panel="memory">01 / A qubit remembers</button><button role="tab" id="tab-probe" aria-controls="probe" aria-selected="false" data-panel="probe">02 / Hidden phase memory</button><button role="tab" id="tab-loop" aria-controls="loop" aria-selected="false" data-panel="loop">03 / Order leaves a twist</button></div>
+<section id="memory" class="panel" role="tabpanel" aria-labelledby="tab-memory">
+<h2 class="sectionhead">Three futures, two quantum dimensions</h2><p class="description">A symbol may change to either of the other two, but never repeat itself. A conventional causal-state simulator uses 3 distinguishable states; one qubit with a three-outcome measurement and outcome-conditioned reset reproduces the same process exactly.</p>
+<div class="grid"><div class="box"><div class="row"><strong>Trine quantum states</strong><span class="small">Bloch-sphere equator</span></div>
+<svg class="trine" viewBox="0 0 330 267" aria-label="Three quantum memory directions arranged 120 degrees apart">
+<circle cx="165" cy="129" r="102" stroke="#4a6983" stroke-width="1" fill="none" stroke-dasharray="4 6"/><circle cx="165" cy="129" r="4" fill="#c3dbf4"/>
+<path d="M165 129 L267 129 L114 40.7 Z" fill="#65e3ef" fill-opacity=".07" stroke="#436e80" stroke-width="1"/><path d="M114 40.7 L114 217.3 L165 129" stroke="#436e80" fill="none"/>
+<line x1="165" y1="129" x2="267" y2="129" stroke="#65e3ef" stroke-width="3"/><line x1="165" y1="129" x2="114" y2="40.7" stroke="#ffc36d" stroke-width="3"/><line x1="165" y1="129" x2="114" y2="217.3" stroke="#ac9af8" stroke-width="3"/>
+<circle id="memoryA" cx="267" cy="129" r="10" fill="#65e3ef"/><circle id="memoryB" cx="114" cy="40.7" r="8" fill="#ffc36d"/><circle id="memoryC" cx="114" cy="217.3" r="8" fill="#ac9af8"/>
+<text x="287" y="134" fill="#65e3ef" font-size="16">A</text><text x="100" y="30" fill="#ffc36d" font-size="16">B</text><text x="101" y="244" fill="#ac9af8" font-size="16">C</text>
+<text x="165" y="261" text-anchor="middle" font-size="11" fill="#819ab7">three overlapping quantum states</text></svg>
+<div class="row"><div>Current memory: <span id="currentSymbol" class="symbol a">A</span></div><div class="buttons"><button class="primary" id="nextSymbol">Observe next →</button><button class="secondary" id="resetMemory">Reset</button></div></div>
+<p class="small">Emitted history (latest 18)</p><div id="history" class="trail" aria-live="polite"></div></div>
+<div class="box"><strong>One-step predictive matrix</strong><table class="matrix"><thead><tr><th>past↓</th><th>A</th><th>B</th><th>C</th></tr></thead><tbody><tr id="row0" class="selected"><th>A</th><td class="zero">0</td><td>½</td><td>½</td></tr><tr id="row1"><th>B</th><td>½</td><td class="zero">0</td><td>½</td></tr><tr id="row2"><th>C</th><td>½</td><td>½</td><td class="zero">0</td></tr></tbody></table>
+<div class="stats"><div class="stat"><div class="big">3</div><small>classical causal states</small></div><div class="stat"><div class="big" style="color:var(--cyan)">2</div><small>quantum Hilbert dimension</small></div></div><p class="mono">P(j|i) = Tr(ρᵢ Eⱼ)</p><p class="mono">rank(P) = 3; σ₃(P) = 0.5</p><div class="note">The lower bound 0.5 concerns the Frobenius error of rank-2 approximations of the one-step table. It is <em>not</em> a bound on every classical program or arbitrary sequential compression strategy.</div></div></div>
+<p class="conclusion">The qubit simulator uses a three-outcome POVM followed by an outcome-conditioned state preparation, not only a reversible unitary. The output register, measurement hardware and control costs are not included in the bare memory-dimension comparison.</p>
+</section>
+<section id="probe" class="panel" role="tabpanel" aria-labelledby="tab-probe" hidden>
+<h2 class="sectionhead">Same weak memory. Different hidden future.</h2><p class="description">Both constellations have first moment m₁ = 0.5, but their second moments are −0.5 and +1. Add the second-harmonic coupling to reveal the distinction. A classically simulated qubit and a matched classical Bloch-vector probe agree exactly.</p>
+<div class="grid"><div class="box"><div class="moonpair"><div class="moon"><b style="color:var(--cyan)">CONSTELLATION A</b><svg viewBox="0 0 180 170" aria-label="Four oscillators, two at plus and two at minus sixty degrees"><circle cx="90" cy="83" r="60" fill="none" stroke="#446078"/><path d="M20 83H160M90 10V157" stroke="#344b61" stroke-width="1"/><line x1="90" y1="83" x2="120" y2="31" stroke="#65e3ef" stroke-width="2"/><line x1="90" y1="83" x2="120" y2="135" stroke="#65e3ef" stroke-width="2"/><circle cx="120" cy="31" r="8" fill="#65e3ef"/><circle cx="120" cy="31" r="3" fill="#092333"/><circle cx="120" cy="135" r="8" fill="#65e3ef"/><circle cx="120" cy="135" r="3" fill="#092333"/></svg><div class="mono">m₁=0.5 · m₂=−0.5</div></div><div class="moon"><b style="color:var(--amber)">CONSTELLATION B</b><svg viewBox="0 0 180 170" aria-label="Four oscillators, three at zero degrees and one at 180 degrees"><circle cx="90" cy="83" r="60" fill="none" stroke="#446078"/><path d="M20 83H160M90 10V157" stroke="#344b61" stroke-width="1"/><line x1="90" y1="83" x2="150" y2="83" stroke="#ffc36d" stroke-width="2"/><line x1="90" y1="83" x2="30" y2="83" stroke="#ffc36d" stroke-width="2"/><circle cx="150" cy="83" r="8" fill="#ffc36d"/><circle cx="150" cy="83" r="3" fill="#48321b"/><circle cx="30" cy="83" r="8" fill="#ffc36d"/></svg><div class="mono">m₁=0.5 · m₂=+1</div></div></div>
+<div class="note">Four physical oscillators in each constellation; overlapping dots represent multiple oscillators, not fewer units.</div>
+<label class="range" for="g2">SECOND-HARMONIC COUPLING <strong id="g2Value">0.00</strong><input id="g2" type="range" min="0" max="1.5" step="0.05" value="0"></label>
+<label class="range" for="dt">INTERROGATION DURATION <strong id="dtValue">1.10</strong><input id="dt" type="range" min="0" max="4" step="0.05" value="1.1"></label>
+</div><div class="box"><strong>Probability of the qubit probe returning |0⟩</strong>
+<div class="meter"><label>Constellation A</label><div class="bar"><div id="barA" style="background:var(--cyan);width:0"></div></div><strong id="pA">—</strong></div>
+<div class="meter"><label>Constellation B</label><div class="bar"><div id="barB" style="background:var(--amber);width:0"></div></div><strong id="pB">—</strong></div>
+<div class="stat" style="margin-top:20px"><small>Distinguishability (absolute probability gap)</small><div class="big" id="probeGap">—</div></div>
+<p class="mono">H/ℏ = (h · σ)/2</p><p class="mono">hₓ + ihᵧ = m₁ + g₂m₂</p><p class="mono">hᶻ = 0.4, initial state |+y⟩</p><div class="note">The same result follows from a classical Rodrigues rotation of a three-dimensional Bloch vector. A nonzero gap means the extra harmonic contains information; it does NOT demonstrate quantum advantage.</div></div></div>
+</section>
+<section id="loop" class="panel" role="tabpanel" aria-labelledby="tab-loop" hidden>
+<h2 class="sectionhead">The order of pings survives the loop</h2><p class="description">Apply X and Y rotations followed by their inverses in the group-commutator order. Rotations about different axes do not commute, so the final state need not equal the initial state. This happens in both classical 3D rotation geometry and quantum SU(2).</p>
+<div class="grid"><div class="box"><div class="row"><strong>Initial and final Bloch directions</strong><span class="small">Projected onto Y–Z plane</span></div>
+<svg viewBox="0 0 330 280" style="width:100%;max-width:400px;display:block;margin:auto" aria-label="Initial and rotated state direction"><circle cx="165" cy="136" r="108" stroke="#527087" fill="none"/><path d="M35 136H295M165 12V258" stroke="#354f67"/><circle cx="165" cy="136" r="4" fill="#bfd8ef"/><line x1="165" y1="136" x2="273" y2="136" stroke="#65e3ef" stroke-width="3"/><line id="endDirection" x1="165" y1="136" x2="273" y2="136" stroke="#ffc36d" stroke-width="4"/><text x="272" y="120" fill="#65e3ef" font-size="12">before</text><text id="endLabel" x="272" y="154" fill="#ffc36d" font-size="12">after</text><text x="165" y="273" font-size="11" fill="#8ca4c1" text-anchor="middle">A projection; X displacement is reported numerically</text></svg>
+<label class="range" for="rotation">ROTATION PER PING (RADIANS) <strong id="angleValue">0.55</strong><input id="rotation" type="range" min="0" max="1.4" value="0.55" step="0.01"></label></div>
+<div class="box"><strong>Four ordered operations</strong><p class="mono" style="line-height:2">Uₓ · Uᵧ · Uₓ⁻¹ · Uᵧ⁻¹</p><div class="stats"><div class="stat"><small>Bloch displacement</small><div class="big" id="loopDisplacement">—</div></div><div class="stat"><small>Return probability</small><div class="big" id="loopReturn">—</div></div></div><p class="small">Final Bloch vector</p><div class="mono" id="loopVector">—</div><div class="note">This is the noncommutativity of rotations, not an experiment detecting a Berry phase or quantum consciousness. A state-space path and an interferometric geometric phase require different measurements.</div></div></div>
+</section>
+<footer><div class="foot">Q-word separates <strong>exact mathematical constructions</strong>, <strong>classical simulations of quantum systems</strong>, and <strong>open physical advantage questions</strong>. Nothing on this page measures a neuron, establishes quantum brain dynamics, or runs on quantum hardware. <a href="https://github.com/anttiluode/Q-word/blob/main/docs/PROTOCOL.md">Experiment protocol</a>.</div></footer>
+</main>
+<script>
+'use strict';
+const $=id=>document.getElementById(id);
+const colors=['a','b','c'];let current=0,history=[0],memoryRng=2026;
+function rand(){memoryRng=(1664525*memoryRng+1013904223)>>>0;return memoryRng/4294967296;}
+function renderMemory(){ $('currentSymbol').className='symbol '+colors[current];$('currentSymbol').textContent='ABC'[current];
+ $('history').replaceChildren(...history.slice(-18).map(i=>{let e=document.createElement('span');e.className='symbol '+colors[i];e.textContent='ABC'[i];return e;}));
+ for(let i=0;i<3;i++){ $('row'+i).classList.toggle('selected',i===current);$('memory'+'ABC'[i]).setAttribute('r',i===current?12:8);}}
+$('nextSymbol').addEventListener('click',()=>{const choices=[0,1,2].filter(i=>i!==current);current=choices[rand()<.5?0:1];history.push(current);renderMemory();});
+$('resetMemory').addEventListener('click',()=>{current=0;history=[0];memoryRng=2026;renderMemory();});
+for(const tab of document.querySelectorAll('[role=tab]'))tab.addEventListener('click',()=>{for(const t of document.querySelectorAll('[role=tab]')){let yes=t===tab;t.setAttribute('aria-selected',String(yes));$(t.dataset.panel).hidden=!yes;}});
+function probeProbability(m1,m2,g2,dt){const x=m1+g2*m2,z=.4,speed=Math.hypot(x,z); if(speed===0)return .5;return Math.max(0,Math.min(1,(1+(x/speed)*Math.sin(speed*dt))/2));}
+function renderProbe(){const g2=+$('g2').value,dt=+$('dt').value;$('g2Value').textContent=g2.toFixed(2);$('dtValue').textContent=dt.toFixed(2);
+ const a=probeProbability(.5,-.5,g2,dt),b=probeProbability(.5,1,g2,dt);$('barA').style.width=(100*a)+'%';$('barB').style.width=(100*b)+'%';$('pA').textContent=a.toFixed(4);$('pB').textContent=b.toFixed(4);$('probeGap').textContent=Math.abs(a-b).toFixed(4);}
+$('g2').addEventListener('input',renderProbe);$('dt').addEventListener('input',renderProbe);
+function rot(v,axis,t){let [x,y,z]=v,c=Math.cos(t),s=Math.sin(t);if(axis==='x')return [x,y*c-z*s,y*s+z*c];return [x*c+z*s,y,-x*s+z*c];}
+function renderLoop(){let t=+$('rotation').value;$('angleValue').textContent=t.toFixed(2);
+ let v=[0,1,0];v=rot(v,'y',-t);v=rot(v,'x',-t);v=rot(v,'y',t);v=rot(v,'x',t);
+ let distance=Math.hypot(v[0],v[1]-1,v[2]);$('loopDisplacement').textContent=distance.toFixed(5);$('loopReturn').textContent=((1+v[1])/2).toFixed(6);$('loopVector').textContent=v.map(x=>x.toFixed(5)).join('  /  ');
+ $('endDirection').setAttribute('x2',String(165+108*v[1]));$('endDirection').setAttribute('y2',String(136-108*v[2]));$('endLabel').setAttribute('x',String(Math.min(284,170+108*v[1])));$('endLabel').setAttribute('y',String(151-108*v[2]));}
+$('rotation').addEventListener('input',renderLoop);renderMemory();renderProbe();renderLoop();
+</script>
+</body></html>
