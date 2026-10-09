@@ -17,6 +17,27 @@ class DataTests(unittest.TestCase):
             self.assertLessEqual(max(np.linalg.norm(r0),np.linalg.norm(r1)),1+1e-10)
             r=r0 if rng.random()<p0 else r1
 
+    def test_measurement_update_is_einstein_velocity_addition(self):
+        """quantum_step's Lüders update, before its rotation, is (s*eta*n) (+) r.
+
+        (+) is relativistic velocity addition with c=1: the Bloch ball is
+        relativistic velocity space and a weak measurement is a Lorentz boost.
+        """
+        from qword.sequence import rotate_numpy
+        axes=np.array([[1.,0.,0.],[0.,1.,0.],[.4,.3,np.sqrt(.75)]])
+        axes/=np.linalg.norm(axes,axis=1)[:,None]
+        eta=np.array([.84,.78,.72])
+        def einstein(u,v):
+            g=1/np.sqrt(1-u@u)
+            return (u+v/g+(g/(1+g))*(u@v)*u)/(1+u@v)
+        rng=np.random.default_rng(9)
+        for _ in range(300):
+            r=rng.normal(size=3); r*=rng.uniform()**(1/3)/np.linalg.norm(r)
+            a=int(rng.integers(3)); y=int(rng.integers(2))
+            _,after=quantum_step(r,a,y)
+            vec=np.array([.24*(a+1),.31*(1-2*y),.20*(a-1)])
+            np.testing.assert_allclose(rotate_numpy(after,-vec),einstein((1-2*y)*eta[a]*axes[a],r),atol=1e-12)
+
     def test_classical_filter_preserves_simplex(self):
         b=np.array([.35,.2,.45])
         for t in range(60):

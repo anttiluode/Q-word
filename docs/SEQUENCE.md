@@ -36,6 +36,8 @@ Also evaluate uniform `p=0.5`, one-step action/previous-action/previous-symbol t
 
 ## Recorded held-out results
 
+> **2026-10-09:** the GRU baseline's readout uses one state direction for every action, so it cannot read a different state component per action. With one readout vector per action and 3,000 updates with best-validation weights, on these same data sizes it reaches 0.6048 (qubit source) and 0.6652 (HMM source), level with the real-operator recurrence. The quantum-constrained model still wins its own planted source (0.5899). See [the v3 check](MOBIUS_TRANSFER_CHECK.md#3-the-same-gru-in-v2) and [`results/sequence-v2-converged.json`](../results/sequence-v2-converged.json). The table below is the original 80-update record.
+
 Mean over the three seeds (small sample; **no significance claim**):
 
 | Model | Qubit source NLL | HMM source NLL |

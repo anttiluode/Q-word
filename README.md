@@ -10,6 +10,8 @@
 
 Mean held-out NLL (lower better): physics filter 0.6751 / 0.6740 / 0.6809, qubit-inspired learner 0.6824 / 0.6816 / 0.6892, real-operator learner 0.6879 / 0.6848 / 0.6872, across exact Möbius / second harmonic / hidden drift. **The physics filter wins all three worlds; no quantum advantage is shown.** A separate numeric invariant check confirms exact known-read composition/inversion to near floating-point error but a blind inverse fails with unknown drift. Model rankings are exploratory, with only three seeds and a short, nonmatched training budget.
 
+**2026-10-09 correction — [check of the v3 ranking](docs/MOBIUS_TRANSFER_CHECK.md).** The ranking above came from a 160-sequence training set and a GRU baseline whose readout could not depend on the action. The physics filter is effectively the Bayes ceiling for any learner that sees only actions and outcomes (0.6740 / 0.6730 / 0.6790 with 5,000 particles); about 60% of the oracle's lead is not in the observations. Trained to convergence on 3,200 sequences, a GRU with one readout vector per action matches that ceiling (0.6740 / 0.6727 / 0.6793), the real-operator recurrence comes next (0.6757 / 0.6742 / 0.6797) and the qubit-inspired model is last of the three (0.6766 / 0.6765 / 0.6822). At the published 160 sequences the qubit model is still the best learner, because the larger models overfit. **On these classical worlds the qubit constraint gives no advantage once there is enough data.** [Ceiling receipt](results/mobius-v3-ceiling.json) · [training receipt](results/mobius-v3-converged.json) · [v2 rerun](results/sequence-v2-converged.json).
+
 ## Three experiments
 
 | Experiment | What it actually establishes | What it does not |
