@@ -9,6 +9,7 @@ recurrence. It is not claimed to be an exact linear PSR / OOM.
 from __future__ import annotations
 
 import argparse
+import copy
 import json
 from pathlib import Path
 import time
@@ -157,7 +158,13 @@ if torch is not None:
 
 
     class SmallGRU(nn.Module):
-        """Ordinary nonquantum recurrent predictor; consumes the same data."""
+        """Ordinary nonquantum recurrent predictor; consumes the same data.
+
+        Kept unchanged so the committed v2/v3 receipts reproduce. Its readout is
+        sigmoid(w.r + v_a): one readout direction for every action, so the gap
+        between two actions' logits never depends on the state. It cannot read a
+        different state component for each query port. See ActionReadoutGRU.
+        """
         def __init__(self, width=4):
             super().__init__()
             self.cell=nn.GRUCell(ACTIONS+2,width)
@@ -200,9 +207,42 @@ if torch is not None:
             return torch.sigmoid(self.out(z).squeeze(-1))
 
 
+    class ActionReadoutGRU(nn.Module):
+        """SmallGRU with one change: an action-specific readout vector.
+
+        Prediction is sigmoid(w_a.r + b_a), the same readout form as RealOperator
+        (read[a]) and QuantumInstrument (axis n_a). The recurrent cell, inputs and
+        state width are those of SmallGRU.
+        """
+        def __init__(self, width=4):
+            super().__init__()
+            self.cell=nn.GRUCell(ACTIONS+2,width)
+            self.read=nn.Parameter(torch.randn(ACTIONS,width)*.15)
+            self.bias=nn.Parameter(torch.zeros(ACTIONS))
+            self.initial=nn.Parameter(torch.zeros(width))
+
+        def forward(self,actions,observations):
+            b,length=actions.shape
+            r=self.initial[None].expand(b,-1)
+            out=[]
+            for t in range(length):
+                index=actions[:,t]
+                a=F.one_hot(index,ACTIONS).float()
+                out.append(torch.sigmoid((self.read[index]*r).sum(-1)+self.bias[index]))
+                o=F.one_hot(observations[:,t],2).float()
+                r=self.cell(torch.cat([a,o],-1),r)
+            return torch.stack(out,1)
+
+
     def models():
+        """The four v2/v3 models. Unchanged so committed receipts reproduce."""
         return {'quantum_instrument': QuantumInstrument, 'real_operator': RealOperator,
                 'gru': SmallGRU, 'window_transformer': WindowTransformer}
+
+
+    def extended_models():
+        """The four originals plus the GRU with a per-action readout."""
+        return {**models(), 'gru_action_readout': ActionReadoutGRU}
 
 
     def predicted(model, actions, outcomes, batch=128):
@@ -235,6 +275,38 @@ if torch is not None:
                 history.append({'step':k+1,'train_nll':float(loss.detach()),'valid_nll':log_loss(predicted(model,*valid[:2]),valid[1])})
                 model.train()
         return history
+
+
+    def fit_best(model, train, valid, steps, batch_size, seed, lr=.006, every=100):
+        """Train like fit(), validate every `every` steps, finish with the best-validation weights.
+
+        Returns (history, best_step). Selection uses only the validation split.
+        """
+        if steps < every or every < 1:
+            raise ValueError('need steps >= every >= 1')
+        rng=np.random.default_rng(seed)
+        opt=torch.optim.Adam(model.parameters(),lr=lr)
+        history=[]
+        best=(float('inf'),None,0)
+        for k in range(steps):
+            model.train()
+            indices=rng.integers(0,len(train[0]),size=batch_size)
+            a=torch.as_tensor(train[0][indices],dtype=torch.long)
+            y=torch.as_tensor(train[1][indices],dtype=torch.long)
+            opt.zero_grad(set_to_none=True)
+            p=model(a,y).clamp(1e-6,1-1e-6)
+            loss=F.binary_cross_entropy(p,y.float())
+            loss.backward()
+            nn.utils.clip_grad_norm_(model.parameters(),2.)
+            opt.step()
+            if (k+1)%every==0:
+                valid_nll=log_loss(predicted(model,*valid[:2]),valid[1])
+                history.append({'step':k+1,'valid_nll':valid_nll})
+                if valid_nll<best[0]:
+                    best=(valid_nll,copy.deepcopy(model.state_dict()),k+1)
+        model.load_state_dict(best[1])
+        model.eval()
+        return history,best[2]
 
 
 def markov_baseline(train, test):
