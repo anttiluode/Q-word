@@ -1,5 +1,7 @@
 # Q-word v3 — Möbius transfer: reversible operations are not sufficient memories
 
+> **2026-10-09:** the learned-model ranking below is superseded by [the v3 check](MOBIUS_TRANSFER_CHECK.md). The physics filter is the Bayes ceiling; the qubit model's lead disappears with 3,200 training sequences; and the original GRU's readout could not depend on the action. The protocol, receipt and numbers below are unchanged.
+
 **2026-10-08. Status: exploratory synthetic study, not preregistered.** This is an independent implementation motivated by [MovingTarget2's Möbius addendum](https://github.com/anttiluode/MovingTarget2/blob/main/MOBIUS.md), not an import of its frozen benchmark or a replication of its twenty seeds. MovingTarget2 is unchanged. No quantum hardware is involved.
 
 ## Scientific question

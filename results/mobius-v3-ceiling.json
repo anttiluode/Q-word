@@ -1,0 +1,307 @@
+{
+  "protocol": {
+    "bayes": "true law + disclosed prior; importance sampling (mobius, harmonic) or bootstrap SMC (drift)",
+    "claim": "classical simulation; the oracle sees hidden phases and is not a learner target",
+    "convergence_particles_mobius": [
+      1000,
+      20000
+    ],
+    "length": 24,
+    "open_loop": "same prior and law, pushed through the known actions, outcomes never used",
+    "particles": 5000,
+    "receipt_particles": 48,
+    "seeds": [
+      2026,
+      2027,
+      2028
+    ],
+    "test_sequences": 80,
+    "test_split": "qword.mobius.trajectories(world, test, length, seed*13+3), as results/mobius-v3.json",
+    "worlds": [
+      "mobius",
+      "harmonic",
+      "drift"
+    ]
+  },
+  "runs": [
+    {
+      "bayes_ceiling_1000": 0.6710705529590716,
+      "bayes_ceiling_20000": 0.67153277130358,
+      "bayes_ceiling_5000": 0.6716392898691141,
+      "bayes_median_final_ess_5000": 2213.61525444136,
+      "open_loop_5000": 0.6894769248583247,
+      "oracle_hidden_state": 0.6445579246944827,
+      "receipt_physics_filter_48": 0.6737396964945302,
+      "seconds": 78.7,
+      "seed": 2026,
+      "uniform": 0.6931471805599453,
+      "world": "mobius"
+    },
+    {
+      "bayes_ceiling_1000": 0.6773628471951255,
+      "bayes_ceiling_20000": 0.6771941351273623,
+      "bayes_ceiling_5000": 0.6772741858480739,
+      "bayes_median_final_ess_5000": 2091.8613553655423,
+      "open_loop_5000": 0.6900050304937532,
+      "oracle_hidden_state": 0.6493422485908551,
+      "receipt_physics_filter_48": 0.6774006765479421,
+      "seconds": 136.7,
+      "seed": 2027,
+      "uniform": 0.6931471805599453,
+      "world": "mobius"
+    },
+    {
+      "bayes_ceiling_1000": 0.672905309313896,
+      "bayes_ceiling_20000": 0.6730388151007861,
+      "bayes_ceiling_5000": 0.6731873695340574,
+      "bayes_median_final_ess_5000": 2204.925154952457,
+      "open_loop_5000": 0.6891757082905182,
+      "oracle_hidden_state": 0.6365786690493673,
+      "receipt_physics_filter_48": 0.6741766069794882,
+      "seconds": 133.8,
+      "seed": 2028,
+      "uniform": 0.6931471805599453,
+      "world": "mobius"
+    },
+    {
+      "bayes_ceiling_5000": 0.6703568886375926,
+      "bayes_median_final_ess_5000": 2238.433120901509,
+      "open_loop_5000": 0.6890538382104282,
+      "oracle_hidden_state": 0.6417295747988462,
+      "receipt_physics_filter_48": 0.6726180179788437,
+      "seconds": 251.4,
+      "seed": 2026,
+      "uniform": 0.6931471805599453,
+      "world": "harmonic"
+    },
+    {
+      "bayes_ceiling_5000": 0.6768290319301113,
+      "bayes_median_final_ess_5000": 2108.330248561673,
+      "open_loop_5000": 0.6890974304508087,
+      "oracle_hidden_state": 0.6483692153739441,
+      "receipt_physics_filter_48": 0.6769251911918344,
+      "seconds": 252.0,
+      "seed": 2027,
+      "uniform": 0.6931471805599453,
+      "world": "harmonic"
+    },
+    {
+      "bayes_ceiling_5000": 0.6718924770665021,
+      "bayes_median_final_ess_5000": 2091.5994834168505,
+      "open_loop_5000": 0.68842892613126,
+      "oracle_hidden_state": 0.6368456689961107,
+      "receipt_physics_filter_48": 0.6723268277707303,
+      "seconds": 250.0,
+      "seed": 2028,
+      "uniform": 0.6931471805599453,
+      "world": "harmonic"
+    },
+    {
+      "bayes_ceiling_5000": 0.6725510933373008,
+      "bayes_median_final_ess_5000": 3678.4208840121,
+      "open_loop_5000": 0.6885222542234113,
+      "oracle_hidden_state": 0.6437572117093402,
+      "receipt_physics_filter_48": 0.6754811041137408,
+      "seconds": 30.6,
+      "seed": 2026,
+      "uniform": 0.6931471805599453,
+      "world": "drift"
+    },
+    {
+      "bayes_ceiling_5000": 0.6809448195730798,
+      "bayes_median_final_ess_5000": 3817.0246580153334,
+      "open_loop_5000": 0.6857708389979661,
+      "oracle_hidden_state": 0.6587285856909872,
+      "receipt_physics_filter_48": 0.6814965576920002,
+      "seconds": 30.5,
+      "seed": 2027,
+      "uniform": 0.6931471805599453,
+      "world": "drift"
+    },
+    {
+      "bayes_ceiling_5000": 0.6834464171178477,
+      "bayes_median_final_ess_5000": 3678.3333110728618,
+      "open_loop_5000": 0.6924838445523704,
+      "oracle_hidden_state": 0.6593549275405101,
+      "receipt_physics_filter_48": 0.6858076319448708,
+      "seconds": 30.7,
+      "seed": 2028,
+      "uniform": 0.6931471805599453,
+      "world": "drift"
+    }
+  ],
+  "summary": {
+    "drift": {
+      "bayes_ceiling_5000": {
+        "mean": 0.6789807766760761,
+        "per_seed": [
+          0.6725510933373008,
+          0.6809448195730798,
+          0.6834464171178477
+        ]
+      },
+      "bayes_median_final_ess_5000": {
+        "mean": 3724.5929510334317,
+        "per_seed": [
+          3678.4208840121,
+          3817.0246580153334,
+          3678.3333110728618
+        ]
+      },
+      "open_loop_5000": {
+        "mean": 0.6889256459245826,
+        "per_seed": [
+          0.6885222542234113,
+          0.6857708389979661,
+          0.6924838445523704
+        ]
+      },
+      "oracle_hidden_state": {
+        "mean": 0.6539469083136126,
+        "per_seed": [
+          0.6437572117093402,
+          0.6587285856909872,
+          0.6593549275405101
+        ]
+      },
+      "receipt_physics_filter_48": {
+        "mean": 0.6809284312502039,
+        "per_seed": [
+          0.6754811041137408,
+          0.6814965576920002,
+          0.6858076319448708
+        ]
+      },
+      "share_of_ceiling_reached_open_loop": 0.29799620778633973,
+      "share_of_oracle_lead_not_in_observations": 0.6386146556623865,
+      "uniform": {
+        "mean": 0.6931471805599453,
+        "per_seed": [
+          0.6931471805599453,
+          0.6931471805599453,
+          0.6931471805599453
+        ]
+      }
+    },
+    "harmonic": {
+      "bayes_ceiling_5000": {
+        "mean": 0.6730261325447353,
+        "per_seed": [
+          0.6703568886375926,
+          0.6768290319301113,
+          0.6718924770665021
+        ]
+      },
+      "bayes_median_final_ess_5000": {
+        "mean": 2146.1209509600108,
+        "per_seed": [
+          2238.433120901509,
+          2108.330248561673,
+          2091.5994834168505
+        ]
+      },
+      "open_loop_5000": {
+        "mean": 0.6888600649308323,
+        "per_seed": [
+          0.6890538382104282,
+          0.6890974304508087,
+          0.68842892613126
+        ]
+      },
+      "oracle_hidden_state": {
+        "mean": 0.642314819722967,
+        "per_seed": [
+          0.6417295747988462,
+          0.6483692153739441,
+          0.6368456689961107
+        ]
+      },
+      "receipt_physics_filter_48": {
+        "mean": 0.6739566789804695,
+        "per_seed": [
+          0.6726180179788437,
+          0.6769251911918344,
+          0.6723268277707303
+        ]
+      },
+      "share_of_ceiling_reached_open_loop": 0.21306621930787403,
+      "share_of_oracle_lead_not_in_observations": 0.6041685319369859,
+      "uniform": {
+        "mean": 0.6931471805599453,
+        "per_seed": [
+          0.6931471805599453,
+          0.6931471805599453,
+          0.6931471805599453
+        ]
+      }
+    },
+    "mobius": {
+      "bayes_ceiling_1000": {
+        "mean": 0.6737795698226977,
+        "per_seed": [
+          0.6710705529590716,
+          0.6773628471951255,
+          0.672905309313896
+        ]
+      },
+      "bayes_ceiling_20000": {
+        "mean": 0.6739219071772428,
+        "per_seed": [
+          0.67153277130358,
+          0.6771941351273623,
+          0.6730388151007861
+        ]
+      },
+      "bayes_ceiling_5000": {
+        "mean": 0.6740336150837485,
+        "per_seed": [
+          0.6716392898691141,
+          0.6772741858480739,
+          0.6731873695340574
+        ]
+      },
+      "bayes_median_final_ess_5000": {
+        "mean": 2170.133921586453,
+        "per_seed": [
+          2213.61525444136,
+          2091.8613553655423,
+          2204.925154952457
+        ]
+      },
+      "open_loop_5000": {
+        "mean": 0.689552554547532,
+        "per_seed": [
+          0.6894769248583247,
+          0.6900050304937532,
+          0.6891757082905182
+        ]
+      },
+      "oracle_hidden_state": {
+        "mean": 0.6434929474449017,
+        "per_seed": [
+          0.6445579246944827,
+          0.6493422485908551,
+          0.6365786690493673
+        ]
+      },
+      "receipt_physics_filter_48": {
+        "mean": 0.6751056600073202,
+        "per_seed": [
+          0.6737396964945302,
+          0.6774006765479421,
+          0.6741766069794882
+        ]
+      },
+      "share_of_ceiling_reached_open_loop": 0.1880667433237366,
+      "share_of_oracle_lead_not_in_observations": 0.615066747040223,
+      "uniform": {
+        "mean": 0.6931471805599453,
+        "per_seed": [
+          0.6931471805599453,
+          0.6931471805599453,
+          0.6931471805599453
+        ]
+      }
+    }
+  }
+}
